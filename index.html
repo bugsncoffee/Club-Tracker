@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple tracker for student clubs and activities.">
+  <title>Student Club Activity Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- The login screen asks the visitor for a name and a demo role. -->
+  <main id="login" class="login">
+    <header class="login-header">
+      <p class="brand-mark" aria-hidden="true">CC</p>
+      <p class="eyebrow">STUDENT LIFE, MADE SIMPLE</p>
+    </header>
+    <section aria-labelledby="loginTitle">
+      <h1 id="loginTitle">Campus Clubs</h1>
+      <p class="intro">
+        Find a club, take part in events and keep track of your semester.
+      </p>
+      <form id="loginForm">
+        <div class="form-field">
+          <label for="visitorName">Your name</label>
+          <input
+            id="visitorName"
+            name="name"
+            type="text"
+            placeholder="Enter your name"
+            autocomplete="name"
+            maxlength="40"
+            required>
+        </div>
+        <div class="form-field">
+          <label for="visitorRole">Choose a demo role</label>
+          <select id="visitorRole" name="role">
+            <option value="student">Student</option>
+            <option value="leader">Club Leader</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <div id="codeField" class="form-field" hidden>
+          <label for="accessCode">Role access code</label>
+          <input
+            id="accessCode"
+            name="accessCode"
+            type="password"
+            placeholder="Enter the demo code"
+            autocomplete="off">
+        </div>
+
+        <p id="loginError" class="login-error" role="alert"></p>
+        <button type="submit">Continue to the tracker</button>
+      </form>
+
+      <p class="help-text">
+        For this demo, Club Leader code: <strong>leader123</strong>;
+        Admin code: <strong>admin123</strong>. Student login needs no code.
+      </p>
+      <p class="help-text">These example codes are not secure authentication.</p>
+    </section>
+    <aside class="login-help" aria-label="Project features">
+      <h2>One place for campus activities</h2>
+      <ul>
+        <li>Explore student clubs</li>
+        <li>Join clubs and attend events</li>
+        <li>Keep a record of your activities</li>
+      </ul>
+    </aside>
+  </main>
+  <!-- JavaScript hides this dashboard until the visitor chooses a role. -->
+  <div id="app" hidden>
+    <header class="site-header">
+      <a class="site-name" href="#" aria-label="Campus Clubs home">
+        Campus Clubs
+      </a>
+      <div class="account">
+        <span id="currentUser" aria-live="polite"></span>
+        <button id="switchUser" class="secondary" type="button">
+          Change role
+        </button>
+      </div>
+    </header>
+    <nav id="navigation" aria-label="Main navigation">
+      <!-- JavaScript adds navigation buttons for the selected role. -->
+    </nav>
+
+    <main id="content" aria-live="polite">
+      <!-- JavaScript displays the selected page in this area. -->
+    </main>
+
+    <footer class="site-footer">
+      <p>Student Club Activity Tracker</p>
+      <p>Project demonstration · Information stays in this browser</p>
+    </footer>
+
+    <div id="message" role="status" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
